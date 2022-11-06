@@ -10,7 +10,7 @@ import { useMutation } from '@tanstack/react-query'
 const path = "https://w03api.herokuapp.com/users/login"
 
 function Login() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState(null);
     const [serverError, setServerError] = useState(null);
     let navigate = useNavigate();

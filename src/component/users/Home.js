@@ -42,7 +42,7 @@ function Home() {
 };
 
 const api = axios.create({
-  baseURL: "http://localhost:3001",
+  baseURL: "https://nice-gold-blackbuck-hem.cyclic.app",
 });
 
 api.interceptors.request.use(async (config) => {

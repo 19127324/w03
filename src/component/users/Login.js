@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Signup from "./Signup";
 import Home from "./Home";
 import { useMutation } from '@tanstack/react-query'
-const path = "http://localhost:3001/users/login"
+const path = "https://nice-gold-blackbuck-hem.cyclic.app/users/login"
 
 function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -28,7 +28,6 @@ function Login() {
                         navigate('/home');
                     }
                 }
-                
                 catch(e){
                     setError("Incorrect username or password");
                     const delay = ms => new Promise(res => setTimeout(res, ms));

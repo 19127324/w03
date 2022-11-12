@@ -6,7 +6,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Login from './Login';
 import { useMutation } from '@tanstack/react-query'
-const path = "http://localhost:3001/users/register"
+const path = "https://nice-gold-blackbuck-hem.cyclic.app/users/register"
 
 function Signup() {
     const { register, handleSubmit, formState: { errors } } = useForm();

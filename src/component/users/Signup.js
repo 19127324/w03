@@ -6,7 +6,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Login from './Login';
 import { useMutation } from '@tanstack/react-query'
-const path = "https://w03api.herokuapp.com/users/register"
+const path = "http://localhost:3001/users/register"
 
 function Signup() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,13 +24,14 @@ function Signup() {
             onSuccess: async (data) => {
                 if (data.message == -1) {
                     setError("This email is already exsisted");
-                    await delay(5000);
+                    await delay(3000);
                     setError("")
                 }
                 else if (data.message == 1) {
                     setResult("Created account successfully");
-                    await delay(5000);
+                    await delay(1000);
                     setResult("")
+                    navigate("/login")
                 }
             },
         }

@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import Signup from "./Signup";
 import Home from "./Home";
 import { useMutation } from '@tanstack/react-query'
-const path = "https://w03api.herokuapp.com/users/login"
+const path = "http://localhost:3001/users/login"
 
 function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -22,14 +22,17 @@ function Login() {
                 setServerError(error.message);
             },
             onSuccess: async (data) => {
-                console.log(data);
-                if (data.message == 1) {
-                    navigate('/home');
+                try{
+                    if (data.message == "User logged in successfully!") {
+                        localStorage.setItem("accessToken", data.token);
+                        navigate('/home');
+                    }
                 }
-                else {
+                
+                catch(e){
                     setError("Incorrect username or password");
                     const delay = ms => new Promise(res => setTimeout(res, ms));
-                    await delay(5000);
+                    await delay(3000);
                     setError("")
                 }
             },

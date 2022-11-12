@@ -1,26 +1,17 @@
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Signup from "./component/users/Signup";
-import Home from "./component/users/Login"
-import Login from "./component/users/Login"
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-const queryClient = new QueryClient()
-
-export default function App() {
-    return (
-        <QueryClientProvider client={queryClient}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Login />}>
-                        <Route path="login" element={<Login />} />
-                        <Route path="signup" element={<Signup />} />
-                        <Route path="home" element={<Home />} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </QueryClientProvider>
-    );
-}
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+        <Routes>
+        
+          <Route path="/*" element={<App />} />
+        </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);

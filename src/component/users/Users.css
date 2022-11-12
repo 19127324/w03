@@ -29,6 +29,15 @@
     color: #171A1FFF;
 }
 
+.text-info {
+    position: absolute;
+    top: 64px;
+    left: 180px;
+    font-family: Poppins;
+    font-size: 36px;
+    line-height: 36px;
+    color: #171A1FFF;
+}
 /* Container 4445 */
 .container-signup {
     position: absolute;

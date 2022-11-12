@@ -1,26 +1,25 @@
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./component/users/Signup";
+import Home from "./component/users/Home"
+import Login from "./component/users/Login"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
+function App() {
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="login" element={<Login />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="home" element={<Home />} />
+                <Route path="*" element={<div>404</div>} />
+            </Routes>
+        </QueryClientProvider>
+    );
+}
 
 export default App;
 
-/*import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import './App.css';
-import  Meme from './Meme/Meme'
-
-function App(){
-    const [urls, setUrls] = useState([])
-    const handleMemeClick = async() =>{
-        const res = await axios.get("https://api.imgflip.com/get_memes");
-        setUrls(res.data.data.memes.map(meme => meme.url));
-    }
-    return <div>
-        <div><b>REGISTER</b></div>
-        <div>Username <input></input>
-            </div> 
-        
-        <Meme urls={urls}></Meme>
-        <button onClick={handleMemeClick}>Click here</button>
-    </div>
-};
-export default App;
-*/
